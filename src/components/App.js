@@ -15,7 +15,9 @@ const App = () => {
   };
 
   const reset = () => {
-    setRenderBall(!renderBall);
+    // setRenderBall(!renderBall);
+    setX(0);
+    setY(0);
     setBallPosition(0, 0);
   };
 
@@ -29,15 +31,15 @@ const App = () => {
     } else if (event.key === "ArrowLeft") {
       setX(x - 5);
     }
-    ballReposition(x, y);
   };
 
   useEffect(() => {
+    ballReposition(x, y);
     document.addEventListener("keydown", handleKeyDown);
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  });
+  }, [x, y]);
 
   const renderChoice = () => {
     if (renderBall)
@@ -54,7 +56,7 @@ const App = () => {
           setRenderBall(!renderBall);
         }}
       >
-        start
+        Start
       </button>
     );
   };
