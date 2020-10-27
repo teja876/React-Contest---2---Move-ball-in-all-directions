@@ -7,7 +7,7 @@ const App = () => {
   const [y, setY] = useState(0);
   const [ballPosition, setBallPosition] = useState({
     left: "0px",
-    top: "0px",
+    top: "0px"
   });
 
   const ballReposition = (x, y) => {
@@ -20,15 +20,17 @@ const App = () => {
   };
 
   const handleKeyDown = (event) => {
-    if (event.key == "ArrowRight") {
-      setX(left + 5);
-    } else if (event.key == "ArrowDown") {
-      setY(top + 5);
-    } else if (event.key == "ArrowUp") {
-      setY(top - 5);
-    } else if (event.key == "ArrowLeft") {
-      setX(left - 5);
+    if (event.key === "ArrowRight") {
+      setX(x + 5);
+    } else if (event.key === "ArrowDown") {
+      setY(y + 5);
+    } else if (event.key === "ArrowUp") {
+      setY(y - 5);
+    } else if (event.key === "ArrowLeft") {
+      setX(x - 5);
     }
+    console.log(ballPosition.x);
+    console.log(ballPosition.y);
     ballReposition(x, y);
   };
 
@@ -40,7 +42,13 @@ const App = () => {
   });
 
   const renderChoice = () => {
-    if (renderBall) return <div className="ball" style={ballPosition}></div>;
+    if (renderBall)
+      return (
+        <div
+          className="ball"
+          style={{ left: ballPosition.left, top: ballPosition.top }}
+        ></div>
+      );
     return (
       <button
         className="start"
