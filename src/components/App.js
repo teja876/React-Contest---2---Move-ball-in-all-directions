@@ -15,7 +15,7 @@ const App = () => {
   };
 
   const reset = () => {
-    // setRenderBall(!renderBall);
+    setRenderBall(!renderBall);
     setX(0);
     setY(0);
     setBallPosition(0, 0);
