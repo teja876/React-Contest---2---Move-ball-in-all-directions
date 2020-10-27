@@ -29,8 +29,6 @@ const App = () => {
     } else if (event.key === "ArrowLeft") {
       setX(x - 5);
     }
-    console.log(ballPosition.x);
-    console.log(ballPosition.y);
     ballReposition(x, y);
   };
 
